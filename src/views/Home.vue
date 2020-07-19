@@ -1,16 +1,19 @@
 <template>
   <el-container class="home-container">
     <el-header>
-      <span>指挥系统后台管理系统</span>
+      <div class="toggle-button">
+        <i
+          :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
+          @click="toggleCollapse"
+        ></i>
+        <span>商城后台管理系统</span>
+      </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
-        <div class="toggle-button" @click="toggleCollapse">
-          <i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
-        </div>
         <el-menu
-          background-color="#545c64"
+          background-color="#333744"
           text-color="#fff"
           active-text-color="#409eff"
           unique-opened
@@ -93,6 +96,7 @@ export default {
 <style lang="less" scoped>
 .home-container {
   height: 100%;
+  background-color: #f0f0f0;
 }
 
 .el-header {
@@ -107,17 +111,25 @@ export default {
 }
 
 .el-aside {
-  background-color: #545c64;
+  background-color: #333744;
   .el-menu {
     border-right: none;
   }
 }
 
 .toggle-button {
-  cursor: pointer;
   display: flex;
-  justify-content: center;
-  font-size: 26px;
-  color: #fff;
+  > i {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    color: #fff;
+  }
+  > span {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 30px;
+  }
 }
 </style>
